@@ -20,6 +20,23 @@
 
             SemanticScreenReader.Announce(CounterBtn.Text);
         }
+        private async void OnMapClicked(object? sender, EventArgs e)
+        {
+            var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            if (status != PermissionStatus.Granted)
+            {
+                status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            }
+
+            if (status == PermissionStatus.Granted)
+            {
+                await Navigation.PushModalAsync(new MapPage());
+            }
+            else
+            {
+                await DisplayAlert("Permission Denied", "Location Permission is required for map use", "OK");
+            }
+        }
 
         private async void OnScannerClicked(object? sender, EventArgs e)
         {
