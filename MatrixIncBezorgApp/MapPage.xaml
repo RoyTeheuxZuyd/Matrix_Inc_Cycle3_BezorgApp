@@ -16,4 +16,10 @@
                   HeightRequest="400"
                   IsScrollEnabled="True"
                   IsZoomEnabled="True" />
+        
+        <Button Text="Close"
+                VerticalOptions="End"
+                HorizontalOptions="Center"
+                Margin="20"
+                Clicked="CloseButton_Clicked" />
     </VerticalStackLayout>

@@ -6,8 +6,14 @@ using System.Runtime.CompilerServices;
 
 namespace MatrixIncBezorgApp
 {
-    public partial class MainPage : ContentPage
+    public partial class MapPage : ContentPage
     {
+        public MapPage()
+        {
+            InitializeComponent();
+            BindingContext = this;
+        }
+        
         private CancellationTokenSource? _cancelTokenSource;
         private bool _isCheckingLocation;
 
@@ -37,12 +43,6 @@ namespace MatrixIncBezorgApp
                     OnPropertyChanged();
                 }
             }
-        }
-
-        public MainPage()
-        {
-            InitializeComponent();
-            BindingContext = this;
         }
 
         private async void OnGetLocationClicked(object sender, EventArgs e)
@@ -105,6 +105,10 @@ namespace MatrixIncBezorgApp
                     location,
                     Distance.FromKilometers(1)));
             });
+        }
+        private async void CloseButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
         }
     }
 }
