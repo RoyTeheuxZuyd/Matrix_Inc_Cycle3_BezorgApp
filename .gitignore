@@ -397,5 +397,68 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
+# JetBrains IDEs (IntelliJ Platform)
+.idea/
+*.iml
+
+# IntelliJ-based IDE caches and project files
+out/
+
 # JetBrains Rider
 *.sln.iml
+
+# Plugin-specific files
+.idea_modules/
+
+# CMake (CLion)
+cmake-build-*/
+
+# IntelliJ local settings
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# AWS Toolkit
+.idea/**/aws.xml
+
+# SonarLint
+.idea/**/sonarlint/
+
+# Markdown Navigator
+.idea/**/markdown-navigator.xml
+.idea/**/markdown-navigator-enh.xml
+.idea/**/markdown-navigator/
+
+# Cache files
+.idea/**/contentModel.xml
+
+# Database tools
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
+# Gradle
+.idea/**/gradle.xml
+
+# Mongo Explorer plugin
+.idea/**/mongoSettings.xml
+
+# IntelliJ artifact files
+.idea/artifacts/
+
+# HTTP Client requests
+.idea/httpRequests/
+
+# Rider cache
+.idea/**/riderModule.iml
+
+# JetBrains AI Assistant
+.idea/**/ai-assistant.xml
+
+# Fleet
+.fleet/
