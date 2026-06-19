@@ -2,7 +2,6 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
 
         public MainPage()
         {
@@ -21,20 +20,23 @@
 
         private async void OnScannerClicked(object? sender, EventArgs e)
         {
-            var status = await Permissions.CheckStatusAsync<Permissions.Camera>();
-            if (status != PermissionStatus.Granted)
+            try
             {
-                status = await Permissions.RequestAsync<Permissions.Camera>();
-            }
+                var status = await Permissions.CheckStatusAsync<Permissions.Camera>();
+                if (status != PermissionStatus.Granted)
+                    status = await Permissions.RequestAsync<Permissions.Camera>();
 
-            if (status == PermissionStatus.Granted)
-            {
-                await Navigation.PushModalAsync(new ScannerPage());
+                if (status == PermissionStatus.Granted)
+                    await Navigation.PushModalAsync(new ScannerPage());
+                else
+                    await DisplayAlert("Permission Denied", "Camera permission is required to scan barcodes", "OK");
             }
-            else
+            catch (Exception ex)
             {
-                await DisplayAlert("Permission Denied", "Camera permission is required to scan barcodes", "OK");
+                System.Diagnostics.Debug.WriteLine($"Scanner navigation error: {ex}");
+                await DisplayAlert("Error", "Something went wrong opening the scanner.", "OK");
             }
         }
     }
+    
 }
