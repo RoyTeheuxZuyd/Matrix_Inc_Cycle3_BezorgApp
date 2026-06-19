@@ -13,3 +13,5 @@ Zorg dat de volgende pakketten zijn geinstalleerd in het project:
 *Installeer deze inclusief dependencies*
 
 allemaal te vinden via Nuget
+
+Start na het installeren het project weer opnieuw op
