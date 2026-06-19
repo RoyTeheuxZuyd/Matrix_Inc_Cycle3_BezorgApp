@@ -11,4 +11,14 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
+    <ShellContent
+        Title="Packages"
+        ContentTemplate="{DataTemplate local:PackagesToScanPage}"
+        Route="PackagesToScanPage" />
+
+    <ShellContent
+        Title="Summary"
+        ContentTemplate="{DataTemplate local:SummaryPage}"
+        Route="SummaryPage" />
+
 </Shell>
