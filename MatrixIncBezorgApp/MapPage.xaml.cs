@@ -45,8 +45,9 @@ namespace MatrixIncBezorgApp
             }
         }
 
-        private async void OnGetLocationClicked(object sender, EventArgs e)
+        protected override async void OnAppearing()
         {
+            base.OnAppearing();
             await GetCurrentLocation();
         }
 

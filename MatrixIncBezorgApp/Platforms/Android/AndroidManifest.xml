@@ -7,7 +7,7 @@
 			android:supportsRtl="true">
 		<meta-data
 				android:name="com.google.android.geo.API_KEY"
-				android:value="API_KEY" />
+				android:value="PASTE_API_KEY_HERE" />
 		<!-- GOOGLE API Key, Maps SDK for Android must be enabled-->
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
