@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             x:Class="MatrixIncBezorgApp.MapPage">
+
+    <Grid>
+
+
+        <maps:Map x:Name="MyMap"
+          HeightRequest="1080"
+          IsScrollEnabled="True"
+          IsZoomEnabled="True"/>
+
+        
+            <Button Text="Overzicht"
+            VerticalOptions="End"
+            HorizontalOptions="Start"
+            Margin="20"
+            Clicked="CloseButton_Clicked" />
+
+            <Button Text="Scannen"
+            VerticalOptions="End"
+            HorizontalOptions="End"
+            Margin="20"
+            Clicked="OnScannerClicked" />
+
+
+        
+
+
+        <Border BackgroundColor="#2D2D2D" 
+        StrokeShape="RoundRectangle 8"
+        Stroke="#444444"
+        Padding="10"
+        HorizontalOptions="Center"
+        VerticalOptions="Start">
+            <Label TextColor="White">
+                <Label.Text>
+                    <MultiBinding StringFormat="Latitude: {0}&#10;Longitude: {1}">
+                        <Binding Path="Lat" />
+                        <Binding Path="Long" />
+                    </MultiBinding>
+                </Label.Text>
+            </Label>
+        </Border>
+
+    </Grid>
+
+</ContentPage>
