@@ -9,7 +9,7 @@
 
         <!-- HEADER -->
         <Frame Grid.Row="0"
-               BackgroundColor="White"
+               BackgroundColor="Yellow"
                BorderColor="LightGray"
                Padding="10"
                Margin="10">

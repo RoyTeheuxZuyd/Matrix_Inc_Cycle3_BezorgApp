@@ -22,21 +22,22 @@
                 SemanticProperties.Hint="proces van bus inlading"
                 Clicked="OnBusVoorbereidenClicked"
                 HorizontalOptions="Fill" />
-
+<!--
         <Button
                 x:Name="PackagesBtn"
                 Text="View Packages to Scan"
                 SemanticProperties.Hint="View the list of packages to collect from racks"
                 Clicked="OnPackagesClicked"
                 HorizontalOptions="Fill" />
-
-            <Button
-                x:Name="SummaryBtn"
-                Text="View Summary"
-                SemanticProperties.Hint="View summary of scanned vs missing packages"
-                Clicked="OnSummaryClicked"
-                HorizontalOptions="Fill" />
-
+-->
+<!--
+        <Button
+            x:Name="SummaryBtn"
+            Text="View Summary"
+            SemanticProperties.Hint="View summary of scanned vs missing packages"
+            Clicked="OnSummaryClicked"
+            HorizontalOptions="Fill" />
+-->        
         <Button
                 x:Name="ScannerBtn"
                 Text="Open Scanner" 
