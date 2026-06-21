@@ -1,13 +1,78 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MatrixIncBezorgApp.Models"
+             xmlns:converters="clr-namespace:MatrixIncBezorgApp.Converters"
              x:Class="MatrixIncBezorgApp.BerichtenPage"
              Title="Berichten">
 
-    <VerticalStackLayout Padding="20">
-        <Label Text="Berichten"
-               FontSize="24"
-               FontAttributes="Bold" />
-    </VerticalStackLayout>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
+    <Grid RowDefinitions="*,Auto">
+        <CollectionView x:Name="BerichtList"
+                        Grid.Row="0">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:BerichtItem">
+                    <Frame BackgroundColor="White"
+                           BorderColor="LightGray"
+                           Margin="10" 
+                           Padding="10">
+
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnToggleExpand" />
+                        </Frame.GestureRecognizers>
+
+                        <VerticalStackLayout Spacing="5">
+
+                            <!-- TITEL -->
+                            <Label Text="{Binding Onderwerp}"
+                                   FontSize="18"
+                                   TextColor="Black"
+                                   FontAttributes="Bold" />
+
+                            <!-- DATUM -->
+                            <Label Text="{Binding Datum, StringFormat='{0:dd-MM-yyyy}'}"
+                                   FontSize="12"
+                                   TextColor="DarkGray" />
+
+                            <!-- PREVIEW (alleen collapsed) -->
+                            <Label Text="{Binding Bericht}"
+                                   LineBreakMode="TailTruncation"
+                                   MaxLines="2"
+                                   TextColor="Black"
+                                   IsVisible="{Binding IsExpanded, Converter={StaticResource InverseBoolConverter}}" />
+
+                            <!-- EXPANDED -->
+                            <VerticalStackLayout IsVisible="{Binding IsExpanded}">
+
+                                <Label Text="{Binding Bericht}"
+                                       FontSize="14"
+                                       TextColor="Black" />
+
+                                <Label Text="{Binding Auteur}"
+                                       FontAttributes="Italic"
+                                       TextColor="DarkGray" />
+
+                                <Button Text="Verwijderen"
+                                        Clicked="OnDeleteClicked" />
+
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- DELETE ALL -->
+        <Button Text="Alles verwijderen"
+                Grid.Row="1"
+                HorizontalOptions="End"
+                Margin="20"
+                Clicked="OnDeleteAllClicked"/>
+    </Grid>
 </ContentPage>

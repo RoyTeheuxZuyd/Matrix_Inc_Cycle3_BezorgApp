@@ -8,6 +8,6 @@ public partial class InstellingenPage : ContentPage
 {
     public InstellingenPage()
     {
-        InitializeComponent();
+        //InitializeComponent();
     }
 }
