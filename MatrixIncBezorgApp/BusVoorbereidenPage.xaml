@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MatrixIncBezorgApp.BusVoorbereidenPage"
+             Title="Bus voorbereiden">
+    <Grid RowDefinitions="Auto,Auto,*,Auto">
+
+        <!-- STAPHEADER -->
+        <Frame BackgroundColor="Yellow"
+               BorderColor="LightGray"
+               Padding="10"
+               Margin="10">
+
+            <HorizontalStackLayout 
+                Spacing="20"
+                HorizontalOptions="Center">
+
+                <!-- ACTIVE STEP -->
+                <Frame BackgroundColor="DodgerBlue"
+                       Padding="5"
+                       CornerRadius="6">
+                    <Image Source="truck.png" HeightRequest="28"/>
+                </Frame>
+                <Image Source="loading.png" HeightRequest="28"/>
+                <Image Source="barcode.png" HeightRequest="28"/>
+                <Image Source="express_delivery.png" HeightRequest="28"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <!-- CONTENT -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <!-- INFO TEXT -->
+                <Frame BackgroundColor="White"
+                       BorderColor="LightGray"
+                       Padding="15">
+
+                    <Label Text="Hallo Bezorger, dit zijn de gegevens van je bus voor de dag"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="Purple"/>
+                </Frame>
+
+                <!-- BUS -->
+                <Frame BackgroundColor="White"
+                       BorderColor="LightGray"
+                       Padding="15">
+
+                    <VerticalStackLayout>
+                        <Label Text="Bus" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="Kenteken: AB-123-CD" TextColor="Black"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- LOODS -->
+                <Frame BackgroundColor="White"
+                       BorderColor="LightGray"
+                       Padding="15">
+                    <VerticalStackLayout>
+                        <Label Text="Loods" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="Loods 4" TextColor="Black"/>
+                    </VerticalStackLayout>
+
+                </Frame>
+
+                <!-- DOCK -->
+                <Frame BackgroundColor="White"
+                       BorderColor="LightGray"
+                       Padding="15">
+
+                    <VerticalStackLayout>
+                        <Label Text="Dock" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="Dock 12" TextColor="Black"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- NAV BUTTONS -->
+        <Grid Grid.Row="3"
+              Padding="20"
+              ColumnDefinitions="Auto,*,Auto">
+
+            <Frame Grid.Column="0"
+                   BackgroundColor="LightSkyBlue"
+                   Padding="10"
+                   CornerRadius="10">
+
+                <ImageButton Source="back.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="OnBackClicked"/>
+            </Frame>
+
+            <Label Grid.Column="1"/>
+
+            <Frame Grid.Column="2"
+                   BackgroundColor="LightSkyBlue"
+                   Padding="10"
+                   CornerRadius="10">
+
+                <ImageButton Source="loading.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="OnNextClicked"/>
+            </Frame>
+        </Grid>
+    </Grid>
+</ContentPage>

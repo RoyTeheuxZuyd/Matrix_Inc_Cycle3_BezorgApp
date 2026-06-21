@@ -8,6 +8,11 @@
             InitializeComponent();
         }
 
+        private async void OnBusVoorbereidenClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new BusVoorbereidenPage());
+        }
+
         private async void OnPackagesClicked(object? sender, EventArgs e)
         {
             await Navigation.PushAsync(new PackagesToScanPage());
