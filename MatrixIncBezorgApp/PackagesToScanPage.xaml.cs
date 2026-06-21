@@ -16,5 +16,16 @@ namespace MatrixIncBezorgApp
             Packages = PackageStore.Packages;
             packagesList.ItemsSource = Packages;
         }
+
+        private async void OnBackClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+        //wip
+        private async void OnNextClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Volgende stap", "Nog niet geïmplementeerd", "OK");
+        }
     }
 }

@@ -18,6 +18,6 @@ public partial class BusVoorbereidenPage : ContentPage
 
     private async void OnNextClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Volgende stap", "Nog niet geïmplementeerd", "OK");
+        await Navigation.PushAsync(new PackagesToScanPage());
     }
 }
