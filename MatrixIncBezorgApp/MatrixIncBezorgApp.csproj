@@ -78,6 +78,9 @@
 	  <MauiXaml Update="BerichtenPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="BusVolgeladenPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="BusVoorbereidenPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

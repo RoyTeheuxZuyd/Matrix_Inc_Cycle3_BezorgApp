@@ -30,5 +30,38 @@
                     Margin="10"
                     Clicked="CloseButton_Clicked" />
         </Grid>
+
+        <Grid Grid.Row="2"
+              Padding="20"
+              ColumnDefinitions="Auto,*,Auto"
+              VerticalOptions="End">
+
+            <!-- BACK -->
+            <Frame BackgroundColor="LightSkyBlue"
+                   Padding="10"
+                   CornerRadius="10">
+
+                <ImageButton Source="back.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="OnBackClicked"/>
+            </Frame>
+
+            <Label Grid.Column="1"/>
+
+            <!-- TODO LIST -->
+            <Frame Grid.Column="2"
+                   BackgroundColor="LightSkyBlue"
+                   Padding="10"
+                   CornerRadius="10">
+
+                <ImageButton Source="to_do_list.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="OnNextClicked"/>
+            </Frame>
+        </Grid>
     </Grid>
 </ContentPage>

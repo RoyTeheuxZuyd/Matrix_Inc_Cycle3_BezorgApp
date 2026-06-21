@@ -5,41 +5,170 @@
              x:Class="MatrixIncBezorgApp.SummaryPage"
              Title="Summary">
 
-    <Grid RowDefinitions="*, *" Padding="20">
+    <Grid RowDefinitions="Auto,*,Auto">
 
-        <!-- Still Need To Scan -->
-        <VerticalStackLayout Grid.Row="0">
-            <Label Text="Still Need To Scan" FontSize="20" FontAttributes="Bold" Margin="0,0,0,10" TextColor="#D32F2F" />
-            <CollectionView x:Name="missingPackagesList">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:PackageItem">
-                        <Frame Margin="0,0,0,5" Padding="10" CornerRadius="8" BackgroundColor="#FFEBEE" HasShadow="False">
-                            <Grid ColumnDefinitions="*, Auto">
-                                <Label Grid.Column="0" Text="{Binding PackageId}" FontSize="16" FontAttributes="Bold" />
-                                <Label Grid.Column="1" Text="{Binding RackLocation}" FontSize="14" TextColor="Gray" />
-                            </Grid>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </VerticalStackLayout>
+        <!-- HEADER -->
+        <Frame Grid.Row="0"
+               BackgroundColor="White"
+               BorderColor="LightGray"
+               Padding="10"
+               Margin="10">
 
-        <!-- Scanned -->
-        <VerticalStackLayout Grid.Row="1" Margin="0,20,0,0">
-            <Label Text="Already Scanned" FontSize="20" FontAttributes="Bold" Margin="0,0,0,10" TextColor="#388E3C" />
-            <CollectionView x:Name="scannedPackagesList">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:PackageItem">
-                        <Frame Margin="0,0,0,5" Padding="10" CornerRadius="8" BackgroundColor="#E8F5E9" HasShadow="False">
-                            <Grid ColumnDefinitions="*, Auto">
-                                <Label Grid.Column="0" Text="{Binding PackageId}" FontSize="16" FontAttributes="Bold" />
-                                <Label Grid.Column="1" Text="{Binding RackLocation}" FontSize="14" TextColor="Gray" />
-                            </Grid>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </VerticalStackLayout>
+            <HorizontalStackLayout
+                Spacing="20"
+                HorizontalOptions="Center">
+
+                <Image Source="truck.png"
+                       HeightRequest="28"/>
+
+                <Image Source="loading.png"
+                       HeightRequest="28"/>
+
+                <Frame BackgroundColor="LightSkyBlue"
+                       Padding="5"
+                       CornerRadius="6">
+
+                    <Image Source="barcode.png"
+                           HeightRequest="28"/>
+
+                </Frame>
+
+                <Image Source="express_delivery.png"
+                       HeightRequest="28"/>
+
+            </HorizontalStackLayout>
+
+        </Frame>
+
+        <!-- CONTENT -->
+        <Grid Grid.Row="1"
+              RowDefinitions="*,*"
+              Padding="20">
+
+            <!-- Still Need To Scan -->
+            <VerticalStackLayout Grid.Row="0">
+
+                <Label Text="Still Need To Scan"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       Margin="0,0,0,10"
+                       TextColor="#D32F2F"/>
+
+                <CollectionView x:Name="missingPackagesList">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:PackageItem">
+
+                            <Frame Margin="0,0,0,5"
+                                   Padding="10"
+                                   CornerRadius="8"
+                                   BackgroundColor="#FFEBEE"
+                                   HasShadow="False">
+
+                                <Grid ColumnDefinitions="*,Auto">
+
+                                    <Label Grid.Column="0"
+                                           Text="{Binding PackageId}"
+                                           FontSize="16"
+                                           FontAttributes="Bold"/>
+
+                                    <Label Grid.Column="1"
+                                           Text="{Binding RackLocation}"
+                                           FontSize="14"
+                                           TextColor="Gray"/>
+
+                                </Grid>
+
+                            </Frame>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+            <!-- Already Scanned -->
+            <VerticalStackLayout Grid.Row="1"
+                                 Margin="0,20,0,0">
+
+                <Label Text="Already Scanned"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       Margin="0,0,0,10"
+                       TextColor="#388E3C"/>
+
+                <CollectionView x:Name="scannedPackagesList">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:PackageItem">
+
+                            <Frame Margin="0,0,0,5"
+                                   Padding="10"
+                                   CornerRadius="8"
+                                   BackgroundColor="#E8F5E9"
+                                   HasShadow="False">
+
+                                <Grid ColumnDefinitions="*,Auto">
+
+                                    <Label Grid.Column="0"
+                                           Text="{Binding PackageId}"
+                                           FontSize="16"
+                                           FontAttributes="Bold"/>
+
+                                    <Label Grid.Column="1"
+                                           Text="{Binding RackLocation}"
+                                           FontSize="14"
+                                           TextColor="Gray"/>
+
+                                </Grid>
+
+                            </Frame>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+        </Grid>
+
+        <!-- NAV BUTTONS -->
+        <Grid Grid.Row="2"
+              Padding="20"
+              ColumnDefinitions="Auto,*,Auto">
+
+            <Frame BackgroundColor="LightSkyBlue"
+                   Padding="10"
+                   CornerRadius="10"
+                   HasShadow="False">
+
+                <ImageButton Source="back.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="OnBackClicked"/>
+
+            </Frame>
+
+            <Label Grid.Column="1"/>
+
+            <Frame Grid.Column="2"
+                   BackgroundColor="LightSkyBlue"
+                   Padding="10"
+                   CornerRadius="10"
+                   HasShadow="False">
+
+                <ImageButton Source="express_delivery.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="OnNextClicked"/>
+
+            </Frame>
+
+        </Grid>
 
     </Grid>
 
