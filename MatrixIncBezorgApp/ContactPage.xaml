@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MatrixIncBezorgApp.ContactPage"
+             Title="Contact leidinggevende">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Label Text="Heeft u vragen, opmerkingen of problemen? Neem contact op met uw leidinggevende."
+               FontSize="16" />
+
+        <Label Text="{Binding ManagerName}"
+               FontSize="20"
+               FontAttributes="Bold"
+               TextColor="Black" />
+
+        <Frame BackgroundColor="White"
+               BorderColor="LightGray"
+               Padding="15"
+               Margin="0,10">
+
+            <Grid ColumnDefinitions="Auto,*">
+                <Image Source="emailicon.png"
+                       WidthRequest="24"
+                       HeightRequest="24"
+                       VerticalOptions="Center"/>
+
+                <Label Grid.Column="1"
+                       Text="{Binding EmailAddress}"
+                       TextColor="Black"
+                       FontSize="16"
+                       VerticalOptions="Center"
+                       Margin="10,0,0,0"/>
+
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEmailClicked"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+        </Frame>
+
+        <Frame BackgroundColor="White"
+               BorderColor="LightGray"
+               Padding="15"
+               Margin="0,10">
+
+            <Grid ColumnDefinitions="Auto,*">
+                <Image Source="telefoonicon.png"
+                       WidthRequest="24"
+                       HeightRequest="24"
+                       VerticalOptions="Center"/>
+
+                <Label Grid.Column="1"
+                       Text="{Binding PhoneNumber}"
+                       TextColor="Black"
+                       FontSize="16"
+                       VerticalOptions="Center"
+                       Margin="10,0,0,0"/>
+
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnPhoneClicked"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>

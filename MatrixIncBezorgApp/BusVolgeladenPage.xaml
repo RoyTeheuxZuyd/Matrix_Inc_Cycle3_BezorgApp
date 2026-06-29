@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MatrixIncBezorgApp.BusVolgeladenPage"
+             Title="Bus Volgeladen">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- STAP HEADER -->
+        <Frame BackgroundColor="Yellow"
+               BorderColor="LightGray"
+               Padding="10"
+               Margin="10">
+
+            <HorizontalStackLayout 
+                Spacing="20"
+                HorizontalOptions="Center">
+
+                <Image Source="truck.png" HeightRequest="28"/>
+                <Image Source="loading.png" HeightRequest="28"/>
+                <Image Source="barcode.png" HeightRequest="28"/>
+                <Frame BackgroundColor="DodgerBlue"
+                       Padding="5"
+                       CornerRadius="6">
+                    <Image Source="express_delivery.png"
+                           HeightRequest="28"/>
+                </Frame>
+
+            </HorizontalStackLayout>
+        </Frame>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="20">
+                <Frame BackgroundColor="White"
+                       BorderColor="LightGray"
+                       Padding="15">
+
+            <Label Text="Succes met de busrit, bezorger!"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="Purple"/>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- NAV BUTTONS -->
+        <Grid Grid.Row="2"
+              Padding="20"
+              ColumnDefinitions="Auto,*,Auto">
+
+            <Frame BackgroundColor="LightSkyBlue"
+                   Padding="10"
+                   CornerRadius="10">
+
+                <ImageButton Source="back.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="OnBackClicked"/>
+            </Frame>
+            <Label Grid.Column="1"/>
+
+            <Button Grid.Column="2"
+                    Text="NAVIGEREN"
+                    FontAttributes="Bold"
+                    BackgroundColor="LightSkyBlue"
+                    TextColor="Black"
+                    Clicked="OnNextClicked"/>
+        </Grid>
+
+    </Grid>
+</ContentPage>
