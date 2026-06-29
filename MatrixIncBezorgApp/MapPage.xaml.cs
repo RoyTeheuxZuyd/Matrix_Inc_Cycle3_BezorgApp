@@ -107,28 +107,15 @@ namespace MatrixIncBezorgApp
                     Distance.FromKilometers(1)));
             });
         }
-        private async void CloseButton_Clicked(object sender, EventArgs e)
+        
+        private async void OnBackClicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
-        private async void OnScannerClicked(object? sender, EventArgs e)
+        private async void OnNextClicked(object sender, EventArgs e)
         {
-            try
-            {
-                var status = await Permissions.CheckStatusAsync<Permissions.Camera>();
-                if (status != PermissionStatus.Granted)
-                    status = await Permissions.RequestAsync<Permissions.Camera>();
-
-                if (status == PermissionStatus.Granted)
-                    await Navigation.PushModalAsync(new ScannerPage());
-                else
-                    await DisplayAlert("Permission Denied", "Camera permission is required to scan barcodes", "OK");
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Scanner navigation error: {ex}");
-                await DisplayAlert("Error", "Something went wrong opening the scanner.", "OK");
-            }
+            await Navigation.PushAsync(new ScannerPage());
         }
+        
     }
 }

@@ -70,7 +70,8 @@
                                     <Label Grid.Column="0"
                                            Text="{Binding PackageId}"
                                            FontSize="16"
-                                           FontAttributes="Bold"/>
+                                           FontAttributes="Bold"
+                                           TextColor="#D32F2F"/>
 
                                     <Label Grid.Column="1"
                                            Text="{Binding RackLocation}"
@@ -114,7 +115,8 @@
                                     <Label Grid.Column="0"
                                            Text="{Binding PackageId}"
                                            FontSize="16"
-                                           FontAttributes="Bold"/>
+                                           FontAttributes="Bold"
+                                           TextColor="#388E3C"/>
 
                                     <Label Grid.Column="1"
                                            Text="{Binding RackLocation}"

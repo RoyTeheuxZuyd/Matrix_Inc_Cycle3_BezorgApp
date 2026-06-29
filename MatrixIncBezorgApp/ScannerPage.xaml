@@ -23,12 +23,13 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-
+            <!--
             <Button Grid.Row="2" 
-                    Text="Close"
-                    HorizontalOptions="Center"
-                    Margin="10"
-                    Clicked="CloseButton_Clicked" />
+                Text="Close"
+                HorizontalOptions="Center"
+                Margin="10"
+                Clicked="CloseButton_Clicked" />
+            -->
         </Grid>
 
         <Grid Grid.Row="2"

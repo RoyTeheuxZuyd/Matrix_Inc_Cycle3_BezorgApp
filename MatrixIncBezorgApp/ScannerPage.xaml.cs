@@ -69,11 +69,12 @@ namespace MatrixIncBezorgApp
             }
         }
 
+        /*
         private async void CloseButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
-
+        */
         private async void OnBackClicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
