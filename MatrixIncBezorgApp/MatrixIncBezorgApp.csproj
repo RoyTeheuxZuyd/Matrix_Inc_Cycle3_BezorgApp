@@ -66,12 +66,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.71" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.9" />
-		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="10.0.71" />
-		<PackageReference Include="Microsoft.Maui.Maps" Version="10.0.71" />
-		<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.10.0" />
+<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.9" />
+
+<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="10.0.80" />
+
+<PackageReference Include="Microsoft.Maui.Maps" Version="10.0.80" />
+
+<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.10.2" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -105,6 +106,10 @@
 	  <MauiXaml Update="SummaryPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Update="Microsoft.Maui.Controls" Version="10.0.80" />
 	</ItemGroup>
 
 </Project>

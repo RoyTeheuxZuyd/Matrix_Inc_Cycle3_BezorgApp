@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MatrixIncBezorgApp.Models"
              x:Class="MatrixIncBezorgApp.ConfirmDelivery"
              Title="ConfirmDelivery">
 
@@ -29,11 +30,11 @@
 
                 <Image Source="express_delivery.png"
                        HeightRequest="28"/>
-      
+
                 <Frame BackgroundColor="LightSkyBlue"
                        Padding="5"
                        CornerRadius="6">
-      
+
                     <Image Source="delivery.png"
                        HeightRequest="28"/>
 
@@ -42,5 +43,102 @@
             </HorizontalStackLayout>
 
         </Frame>
+
+
+        <!-- CONTENT -->
+        <Grid Grid.Row="1"
+          RowDefinitions="*,*"
+          Padding="20">
+
+            <!-- Undelivered -->
+            <VerticalStackLayout Grid.Row="0">
+
+                <Label Text="To be delivererd"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   Margin="0,0,0,10"
+                   TextColor="#D32F2F"/>
+
+                <CollectionView x:Name="undeliveredPackagesList">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:PackageItem">
+
+                            <Frame Margin="0,0,0,5"
+                               Padding="10"
+                               CornerRadius="8"
+                               BackgroundColor="#FFEBEE"
+                               HasShadow="False">
+
+                                <Grid ColumnDefinitions="*,Auto">
+
+                                    <Label Grid.Column="0"
+                                       Text="{Binding PackageId}"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="#D32F2F"/>
+
+                                    <Label Grid.Column="1"
+                                       Text="{Binding Adress}"
+                                       FontSize="14"
+                                       TextColor="Gray"/>
+
+                                </Grid>
+
+                            </Frame>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+            <!-- Delivered -->
+            <VerticalStackLayout Grid.Row="1"
+                             Margin="0,20,0,0">
+
+                <Label Text="Delivered"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   Margin="0,0,0,10"
+                   TextColor="#388E3C"/>
+
+                <CollectionView x:Name="deliveredPackagesList">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:PackageItem">
+
+                            <Frame Margin="0,0,0,5"
+                               Padding="10"
+                               CornerRadius="8"
+                               BackgroundColor="#E8F5E9"
+                               HasShadow="False">
+
+                                <Grid ColumnDefinitions="*,Auto">
+
+                                    <Label Grid.Column="0"
+                                       Text="{Binding PackageId}"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="#388E3C"/>
+
+                                    <Label Grid.Column="1"
+                                       Text="{Binding RackLocation}"
+                                       FontSize="14"
+                                       TextColor="Gray"/>
+
+                                </Grid>
+
+                            </Frame>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+        </Grid>
     </Grid>
 </ContentPage>

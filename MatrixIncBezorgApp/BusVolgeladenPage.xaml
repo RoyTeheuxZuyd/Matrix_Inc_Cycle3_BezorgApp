@@ -26,8 +26,8 @@
                            HeightRequest="28"/>
                 </Frame>
 
-                <Image Source="package.png"
-                       HeightRequest="28"/>
+                <!--<Image Source="delivery.png"
+                       HeightRequest="28"/>-->
 
             </HorizontalStackLayout>
         </Frame>
@@ -48,26 +48,38 @@
 
         <!-- NAV BUTTONS -->
         <Grid Grid.Row="2"
-              Padding="20"
-              ColumnDefinitions="Auto,*,Auto">
+      Padding="20"
+      ColumnDefinitions="Auto,*,Auto">
 
             <Frame BackgroundColor="LightSkyBlue"
-                   Padding="10"
-                   CornerRadius="10">
+           Padding="10"
+           CornerRadius="10"
+           HasShadow="False">
 
                 <ImageButton Source="back.png"
-                             WidthRequest="30"
-                             HeightRequest="30"
-                             BackgroundColor="Transparent"
-                             Clicked="OnBackClicked"/>
+                     WidthRequest="30"
+                     HeightRequest="30"
+                     BackgroundColor="Transparent"
+                     Clicked="OnBackClicked"/>
+
             </Frame>
+
             <Label Grid.Column="1"/>
 
-            <ImageButton Source="map.png"
-                             WidthRequest="30"
-                             HeightRequest="30"
-                             BackgroundColor="Transparent"
-                             Clicked="OnNextClicked"/>
+            <Frame Grid.Column="2"
+           BackgroundColor="LightSkyBlue"
+           Padding="10"
+           CornerRadius="10"
+           HasShadow="False">
+
+                <ImageButton Source="map.png"
+                     WidthRequest="30"
+                     HeightRequest="30"
+                     BackgroundColor="Transparent"
+                     Clicked="OnNextClicked"/>
+
+            </Frame>
+
         </Grid>
 
     </Grid>
