@@ -37,13 +37,15 @@
             SemanticProperties.Hint="View summary of scanned vs missing packages"
             Clicked="OnSummaryClicked"
             HorizontalOptions="Fill" />
--->        
+-->      
+<!--
         <Button
                 x:Name="ScannerBtn"
                 Text="Open Scanner" 
                 SemanticProperties.Hint="Opens the barcode scanner"
                 Clicked="OnScannerClicked"
                 HorizontalOptions="Fill" />
+-->
     </VerticalStackLayout>
 
 </ContentPage>

@@ -1,8 +1,8 @@
+using MatrixIncBezorgApp.Services;
 using Microsoft.Maui.Controls.Maps;
-using Microsoft.Maui.Devices.Sensors;
 using Microsoft.Maui.Maps;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System.Text.Json;
+
 
 namespace MatrixIncBezorgApp
 {
@@ -87,22 +87,44 @@ namespace MatrixIncBezorgApp
             }
         }
 
+        private readonly HttpClient _httpClient = new();
+
         private void UpdatePinOnMap(double latitude, double longitude)
         {
-            MainThread.BeginInvokeOnMainThread(() =>
+            MainThread.BeginInvokeOnMainThread(async() =>
             {
-                var location = new Microsoft.Maui.Devices.Sensors.Location(latitude, longitude);
+                var myLocation = new Microsoft.Maui.Devices.Sensors.Location(latitude, longitude);
 
                 MyMap.Pins.Clear();
                 MyMap.Pins.Add(new Pin
                 {
                     Label = "My Location",
-                    Location = location,
+                    Location = myLocation,
                     Type = PinType.Place
                 });
 
+                foreach (var package in PackageStore.Packages)
+                {
+                    if (package.IsScanned)
+                    {
+                        var locations = await Geocoding.Default.GetLocationsAsync(package.Adress);
+
+                        var location = locations?.FirstOrDefault();
+
+                        if (location != null)
+                        {
+                            MyMap.Pins.Add(new Pin
+                            {
+                                Label = package.PackageId,
+                                Location = location,
+                                Type = PinType.SavedPin
+                            });
+                        }
+                    }
+                }
+
                 MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(
-                    location,
+                    myLocation,
                     Distance.FromKilometers(1)));
             });
         }

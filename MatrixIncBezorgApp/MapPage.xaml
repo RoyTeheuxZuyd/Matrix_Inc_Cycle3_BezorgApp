@@ -24,6 +24,7 @@
                     <MultiBinding StringFormat="Latitude: {0}&#10;Longitude: {1}">
                         <Binding Path="Lat" />
                         <Binding Path="Long" />
+
                     </MultiBinding>
                 </Label.Text>
             </Label>
