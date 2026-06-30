@@ -59,29 +59,29 @@
                    Margin="0,0,0,10"
                    TextColor="#D32F2F"/>
 
-                <CollectionView x:Name="undeliveredPackagesList">
+                <CollectionView
+                    x:Name="undeliveredPackagesList"
+                    SelectionMode="Single"
+                    SelectionChanged="OnPackageClicked">        
 
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:PackageItem">
 
-                            <Frame Margin="0,0,0,5"
-                               Padding="10"
-                               CornerRadius="8"
-                               BackgroundColor="#FFEBEE"
-                               HasShadow="False">
+                            <Frame InputTransparent="True"
+                                   Margin="0,0,0,5"
+                                   Padding="10"
+                                   CornerRadius="8"
+                                   BackgroundColor="#FFEBEE">       
 
                                 <Grid ColumnDefinitions="*,Auto">
 
-                                    <Label Grid.Column="0"
-                                       Text="{Binding PackageId}"
-                                       FontSize="16"
-                                       FontAttributes="Bold"
-                                       TextColor="#D32F2F"/>
+                                    <Label
+                                        Grid.Column="0"
+                                        Text="{Binding PackageId}" />
 
-                                    <Label Grid.Column="1"
-                                       Text="{Binding Adress}"
-                                       FontSize="14"
-                                       TextColor="Gray"/>
+                                    <Label
+                                        Grid.Column="1"
+                                        Text="{Binding Adress}" />
 
                                 </Grid>
 
@@ -104,29 +104,29 @@
                    Margin="0,0,0,10"
                    TextColor="#388E3C"/>
 
-                <CollectionView x:Name="deliveredPackagesList">
+                <CollectionView
+                    x:Name="deliveredPackagesList"
+                    SelectionMode="Single"
+                    SelectionChanged="OnPackageClicked">
 
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:PackageItem">
 
-                            <Frame Margin="0,0,0,5"
-                               Padding="10"
-                               CornerRadius="8"
-                               BackgroundColor="#E8F5E9"
-                               HasShadow="False">
+                            <Frame InputTransparent="True"
+                                   Margin="0,0,0,5"
+                                   Padding="10"
+                                   CornerRadius="8"
+                                   BackgroundColor="#FFEBEE">           
 
                                 <Grid ColumnDefinitions="*,Auto">
 
-                                    <Label Grid.Column="0"
-                                       Text="{Binding PackageId}"
-                                       FontSize="16"
-                                       FontAttributes="Bold"
-                                       TextColor="#388E3C"/>
+                                    <Label
+                                        Grid.Column="0"
+                                        Text="{Binding PackageId}" />           
 
-                                    <Label Grid.Column="1"
-                                       Text="{Binding RackLocation}"
-                                       FontSize="14"
-                                       TextColor="Gray"/>
+                                    <Label
+                                        Grid.Column="1"
+                                        Text="{Binding Adress}" />
 
                                 </Grid>
 

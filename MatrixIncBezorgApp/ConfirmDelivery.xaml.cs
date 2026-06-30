@@ -36,6 +36,7 @@ public partial class ConfirmDelivery : ContentPage
                 DeliveredPackages.Add(package);
             }
             else
+            if (package.IsScanned)
             {
                 UndeliveredPackages.Add(package);
             }
