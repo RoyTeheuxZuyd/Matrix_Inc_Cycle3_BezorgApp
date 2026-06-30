@@ -54,7 +54,7 @@
                    Padding="10"
                    CornerRadius="10">
 
-                <ImageButton Source="barcode.png"
+                <ImageButton Source="delivery.png"
                              WidthRequest="30"
                              HeightRequest="30"
                              BackgroundColor="Transparent"
@@ -62,10 +62,4 @@
             </Frame>
         </Grid>
     </Grid>
-
-    
-
-
-
-
 </ContentPage>

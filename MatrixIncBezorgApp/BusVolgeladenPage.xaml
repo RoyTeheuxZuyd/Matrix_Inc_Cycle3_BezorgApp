@@ -26,6 +26,9 @@
                            HeightRequest="28"/>
                 </Frame>
 
+                <Image Source="package.png"
+                       HeightRequest="28"/>
+
             </HorizontalStackLayout>
         </Frame>
 
@@ -60,12 +63,11 @@
             </Frame>
             <Label Grid.Column="1"/>
 
-            <Button Grid.Column="2"
-                    Text="NAVIGEREN"
-                    FontAttributes="Bold"
-                    BackgroundColor="LightSkyBlue"
-                    TextColor="Black"
-                    Clicked="OnNextClicked"/>
+            <ImageButton Source="map.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="OnNextClicked"/>
         </Grid>
 
     </Grid>

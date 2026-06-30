@@ -6,5 +6,6 @@ namespace MatrixIncBezorgApp.Models
         public string RackLocation { get; set; }
         public bool IsScanned { get; set; }
         public string Adress { get; set; }
+        public bool IsDelivered { get; set; }
     }
 }

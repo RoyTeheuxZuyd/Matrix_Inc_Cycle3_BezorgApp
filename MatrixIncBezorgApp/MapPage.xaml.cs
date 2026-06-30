@@ -15,7 +15,6 @@ namespace MatrixIncBezorgApp
         }
 
         private CancellationTokenSource? _cancelTokenSource;
-        private bool _isCheckingLocation;
 
         private string _lat = "Not set";
         public string Lat
@@ -54,8 +53,6 @@ namespace MatrixIncBezorgApp
         {
             try
             {
-                _isCheckingLocation = true;
-
                 var request = new GeolocationRequest(
                     GeolocationAccuracy.Medium,
                     TimeSpan.FromSeconds(1));
@@ -80,10 +77,6 @@ namespace MatrixIncBezorgApp
             {
                 Lat = "Error";
                 Long = "Error";
-            }
-            finally
-            {
-                _isCheckingLocation = false;
             }
         }
 
@@ -135,7 +128,7 @@ namespace MatrixIncBezorgApp
         }
         private async void OnNextClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ScannerPage());
+            await Navigation.PushAsync(new ConfirmDelivery());
         }
         
     }

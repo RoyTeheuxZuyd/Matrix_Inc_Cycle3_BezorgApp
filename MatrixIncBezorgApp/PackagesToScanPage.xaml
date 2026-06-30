@@ -26,6 +26,9 @@
                 </Frame>
                 <Image Source="barcode.png" HeightRequest="28"/>
                 <Image Source="express_delivery.png" HeightRequest="28"/>
+
+                <Image Source="delivery.png"
+                       HeightRequest="28"/>
             </HorizontalStackLayout>
         </Frame>
 
