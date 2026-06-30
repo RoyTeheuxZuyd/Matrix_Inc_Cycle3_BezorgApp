@@ -8,24 +8,19 @@
             InitializeComponent();
         }
 
-        private async void OnMapClicked(object? sender, EventArgs e)
+        private async void OnBusVoorbereidenClicked(object sender, EventArgs e)
         {
-            try
-            {
-                var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
-                if (status != PermissionStatus.Granted)
-                    status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            await Navigation.PushAsync(new BusVoorbereidenPage());
+        }
 
-                if (status == PermissionStatus.Granted)
-                    await Navigation.PushModalAsync(new MapPage());
-                else
-                    await DisplayAlert("Permission Denied", "Location permission is required for map use", "OK");
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Map navigation error: {ex}");
-                await DisplayAlert("Error", "Something went wrong opening the map.", "OK");
-            }
+        private async void OnPackagesClicked(object? sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PackagesToScanPage());
+        }
+
+        private async void OnSummaryClicked(object? sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SummaryPage());
         }
 
         private async void OnScannerClicked(object? sender, EventArgs e)

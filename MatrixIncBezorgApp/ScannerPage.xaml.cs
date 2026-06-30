@@ -1,15 +1,22 @@
 using System;
 using System.Linq;
+using System.Collections.ObjectModel;
 using Microsoft.Maui.Controls;
 using ZXing.Net.Maui;
+using MatrixIncBezorgApp.Services;
 
 namespace MatrixIncBezorgApp
 {
     public partial class ScannerPage : ContentPage
     {
+        private ObservableCollection<string> scannedPackages;
+
         public ScannerPage()
         {
             InitializeComponent();
+            scannedPackages = new ObservableCollection<string>();
+            scannedList.ItemsSource = scannedPackages;
+
             barcodeReader.Options = new BarcodeReaderOptions
             {
                 Formats = BarcodeFormats.All,
@@ -40,10 +47,22 @@ namespace MatrixIncBezorgApp
                 var first = e.Results.FirstOrDefault();
                 if (first != null)
                 {
-                    Dispatcher.DispatchAsync(async () =>
+                    Dispatcher.DispatchAsync(() =>
                     {
-                        await DisplayAlert("Barcode Detected", $"Format: {first.Format}\nValue: {first.Value}", "OK");
-                        // Decide if you want to keep scanning or pop the page
+                        var barcodeValue = first.Value;
+                        if (!scannedPackages.Contains(barcodeValue))
+                        {
+                            scannedPackages.Insert(0, barcodeValue);
+
+                            // Mark in global store
+                            var package = PackageStore.Packages.FirstOrDefault(p => p.PackageId == barcodeValue);
+                            if (package != null)
+                            {
+                                package.IsScanned = true;
+                            }
+                        }
+
+                        // Keep scanning
                         barcodeReader.IsDetecting = true;
                     });
                 }
@@ -53,6 +72,16 @@ namespace MatrixIncBezorgApp
         private async void CloseButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+
+        private async void OnBackClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+        private async void OnNextClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SummaryPage());
         }
     }
 }

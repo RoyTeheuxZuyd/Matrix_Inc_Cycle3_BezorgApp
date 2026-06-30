@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MatrixIncBezorgApp.InstellingenPage"
+             Title="Instellingen">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="25">
+
+            <!-- WIP BANNER -->
+            <Frame BackgroundColor="Red"
+                   Padding="15"
+                   BorderColor="DarkRed">
+
+                <Label Text="WORK in PROGRES:  deze pagina is nog in ontwikkeling"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+            </Frame>
+
+            <!-- THEMA -->
+            <Frame BackgroundColor="White"
+                   Padding="15"
+                   BorderColor="LightGray">
+
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Thema"
+                           FontAttributes="Bold"
+                           TextColor="Black"/>
+
+                    <RadioButton Content="Licht"
+                                 GroupName="theme"
+                                 CheckedChanged="OnThemeChanged"
+                                 Value="Light"
+                                 TextColor="Black"/>
+
+                    <RadioButton Content="Donker"
+                                 GroupName="theme"
+                                 CheckedChanged="OnThemeChanged"
+                                 Value="Dark"
+                                 TextColor="Black"/>
+
+                    <RadioButton Content="Systeem"
+                                 GroupName="theme"
+                                 CheckedChanged="OnThemeChanged"
+                                 Value="System"
+                                 TextColor="Black"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- LETTERGROOTTE -->
+            <Frame BackgroundColor="White"
+                   Padding="15"
+                   BorderColor="LightGray">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="Lettergrootte"
+                           FontAttributes="Bold"
+                           TextColor="Black"/>
+
+                    <Frame BackgroundColor="White"
+                           Padding="5"
+                           BorderColor="LightGray">
+
+                        <Picker x:Name="FontSizePicker"
+                                TextColor="Black"
+                                SelectedIndexChanged="OnFontSizeChanged">
+                            <Picker.Items>
+                                <x:String>80%</x:String>
+                                <x:String>90%</x:String>
+                                <x:String>100%</x:String>
+                                <x:String>110%</x:String>
+                                <x:String>120%</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </Frame>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- MELDINGEN -->
+            <Frame BackgroundColor="White"
+                   Padding="15"
+                   BorderColor="LightGray">
+
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Meldingen"
+                           FontAttributes="Bold"
+                           TextColor="Black"/>
+
+                    <Label Text="GPS notificaties"
+                           TextColor="Black"/>
+
+                    <Frame BackgroundColor="White"
+                           Padding="5"
+                           BorderColor="LightGray">
+
+                        <Picker x:Name="GpsPicker"
+                                TextColor="Black"
+                                SelectedIndexChanged="OnGpsChanged">
+                            <Picker.Items>
+                                <x:String>Aan</x:String>
+                                <x:String>Uit</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </Frame>
+
+                    <Label Text="Berichten notificaties"
+                           TextColor="Black"/>
+
+                    <Frame BackgroundColor="White"
+                           Padding="5"
+                           BorderColor="LightGray">
+
+                        <Picker x:Name="MessagePicker"
+                                TextColor="Black"
+                                SelectedIndexChanged="OnMessageChanged">
+                            <Picker.Items>
+                                <x:String>Aan</x:String>
+                                <x:String>Uit</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </Frame>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

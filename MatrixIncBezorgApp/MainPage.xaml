@@ -6,29 +6,38 @@
             Padding="30,0"
             Spacing="25">
         <Image
-                Source="dotnet_bot.png"
+                Source="logomatrixinc.png"
                 HeightRequest="185"
                 Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a submarine number ten" />
+                SemanticProperties.Description="matrix inc logo bezorg app" />
 
         <Label
-                Text="Hello, World!"
+                Text="Fijne dag bezorger"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
-        <Label
-                Text="Welcome to &#10;.NET Multi-platform App UI"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
-
         <Button
-                x:Name="MapBtn"
-                Text="Open Map" 
-                SemanticProperties.Hint="Opens Map"
-                Clicked="OnMapClicked"
+                x:Name="BusVoorbereidBtn"
+                Text="Bus voorbereiden"
+                SemanticProperties.Hint="proces van bus inlading"
+                Clicked="OnBusVoorbereidenClicked"
                 HorizontalOptions="Fill" />
-
+<!--
+        <Button
+                x:Name="PackagesBtn"
+                Text="View Packages to Scan"
+                SemanticProperties.Hint="View the list of packages to collect from racks"
+                Clicked="OnPackagesClicked"
+                HorizontalOptions="Fill" />
+-->
+<!--
+        <Button
+            x:Name="SummaryBtn"
+            Text="View Summary"
+            SemanticProperties.Hint="View summary of scanned vs missing packages"
+            Clicked="OnSummaryClicked"
+            HorizontalOptions="Fill" />
+-->        
         <Button
                 x:Name="ScannerBtn"
                 Text="Open Scanner" 

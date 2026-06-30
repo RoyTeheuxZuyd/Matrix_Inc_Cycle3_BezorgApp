@@ -4,11 +4,33 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MatrixIncBezorgApp"
-    Title="MatrixIncBezorgApp">
+    FlyoutBehavior="Flyout">
 
+    <!-- Startscherm (niet in menu) -->
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage"
+        ContentTemplate="{DataTemplate local:MainPage}" />
+
+    <!-- Menu items -->
+
+    <FlyoutItem Title="Berichten" Route="BerichtenPage">
+        <ShellContent
+            ContentTemplate="{DataTemplate local:BerichtenPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Contact leidinggevende" Route="ContactPage">
+        <ShellContent
+            ContentTemplate="{DataTemplate local:ContactPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Melding maken" Route="MeldingPage">
+        <ShellContent
+            ContentTemplate="{DataTemplate local:MeldingPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Instellingen" Route="InstellingenPage">
+        <ShellContent
+            ContentTemplate="{DataTemplate local:InstellingenPage}" />
+    </FlyoutItem>
 
 </Shell>

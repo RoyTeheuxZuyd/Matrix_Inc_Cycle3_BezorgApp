@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MatrixIncBezorgApp.Models"
+             x:Class="MatrixIncBezorgApp.PackagesToScanPage"
+             Title="Packages to Scan">
+    <Grid RowDefinitions="Auto,Auto,* ,Auto" Padding="20">
+
+        <!-- STEP HEADER -->
+        <Frame Grid.Row="0"
+               BackgroundColor="Yellow"
+               BorderColor="LightGray"
+               Padding="10"
+               Margin="0,0,0,10">
+
+            <HorizontalStackLayout 
+                Spacing="20"
+                HorizontalOptions="Center">
+
+                <Image Source="truck.png" HeightRequest="28"/>
+                <!-- ACTIVE STEP -->
+                <Frame BackgroundColor="DodgerBlue"
+                       Padding="5"
+                       CornerRadius="6">
+                    <Image Source="loading.png" HeightRequest="28"/>
+                </Frame>
+                <Image Source="barcode.png" HeightRequest="28"/>
+                <Image Source="express_delivery.png" HeightRequest="28"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <!-- TITLE -->
+        <Label Grid.Row="1"
+               Text="Packages to Collect"
+               FontSize="24"
+               FontAttributes="Bold"
+               Margin="0,0,0,15" />
+
+        <!-- LIST -->
+        <CollectionView Grid.Row="2"
+                        x:Name="packagesList">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:PackageItem">
+                    <Frame Margin="0,0,0,10"
+                           Padding="15"
+                           CornerRadius="8"
+                           BackgroundColor="#E8F5E9"
+                           HasShadow="False">
+
+                        <Grid ColumnDefinitions="*, Auto">
+
+                            <VerticalStackLayout Grid.Column="0">
+                                <Label Text="{Binding PackageId}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="#2E7D32" />
+
+                                <Label Text="Package ID"
+                                       FontSize="12"
+                                       TextColor="Gray" />
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout Grid.Column="1"
+                                                 HorizontalOptions="End">
+
+                                <Label Text="{Binding RackLocation}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="#1565C0"
+                                       HorizontalOptions="End" />
+
+                                <Label Text="Rack"
+                                       FontSize="12"
+                                       TextColor="Gray"
+                                       HorizontalOptions="End" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- NAV BUTTONS -->
+        <Grid Grid.Row="3"
+              Padding="10"
+              ColumnDefinitions="Auto,*,Auto">
+
+            <!-- BACK -->
+            <Frame BackgroundColor="LightSkyBlue"
+                   Padding="10"
+                   CornerRadius="10">
+
+                <ImageButton Source="back.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="OnBackClicked"/>
+            </Frame>
+
+            <Label Grid.Column="1"/>
+
+            <!-- NEXT -->
+            <Frame Grid.Column="2"
+                   BackgroundColor="LightSkyBlue"
+                   Padding="10"
+                   CornerRadius="10">
+
+                <ImageButton Source="barcode.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="OnNextClicked"/>
+            </Frame>
+        </Grid>
+    </Grid>
+</ContentPage>

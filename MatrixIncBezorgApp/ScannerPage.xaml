@@ -5,14 +5,63 @@
              x:Class="MatrixIncBezorgApp.ScannerPage"
              Title="Barcode Scanner">
 
-    <Grid>
+    <Grid RowDefinitions="*,*">
         <zxing:CameraBarcodeReaderView
+            Grid.Row="0"
             x:Name="barcodeReader"
             BarcodesDetected="CameraBarcodeReaderView_BarcodesDetected" />
-        <Button Text="Close"
-                VerticalOptions="End"
-                HorizontalOptions="Center"
-                Margin="20"
-                Clicked="CloseButton_Clicked" />
+
+        <Grid Grid.Row="1" RowDefinitions="Auto,*,Auto" Padding="15">
+            <Label Grid.Row="0" Text="Scanned Packages" FontAttributes="Bold" FontSize="18" Padding="0,0,0,10" />
+
+            <CollectionView Grid.Row="1" x:Name="scannedList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="0,0,0,5" CornerRadius="5" BackgroundColor="#F0F0F0" HasShadow="False">
+                            <Label Text="{Binding .}" FontSize="16" TextColor="Black" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Grid.Row="2" 
+                    Text="Close"
+                    HorizontalOptions="Center"
+                    Margin="10"
+                    Clicked="CloseButton_Clicked" />
+        </Grid>
+
+        <Grid Grid.Row="2"
+              Padding="20"
+              ColumnDefinitions="Auto,*,Auto"
+              VerticalOptions="End">
+
+            <!-- BACK -->
+            <Frame BackgroundColor="LightSkyBlue"
+                   Padding="10"
+                   CornerRadius="10">
+
+                <ImageButton Source="back.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="OnBackClicked"/>
+            </Frame>
+
+            <Label Grid.Column="1"/>
+
+            <!-- TODO LIST -->
+            <Frame Grid.Column="2"
+                   BackgroundColor="LightSkyBlue"
+                   Padding="10"
+                   CornerRadius="10">
+
+                <ImageButton Source="to_do_list.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="OnNextClicked"/>
+            </Frame>
+        </Grid>
     </Grid>
 </ContentPage>
