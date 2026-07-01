@@ -47,17 +47,18 @@
 
         <!-- CONTENT -->
         <Grid Grid.Row="1"
-          RowDefinitions="*,*"
-          Padding="20">
+          RowDefinitions="auto,auto,*,auto"
+          Padding="10">
 
             <!-- Undelivered -->
-            <VerticalStackLayout Grid.Row="0">
+            <VerticalStackLayout Grid.Row="0"
+                             Margin="0,20,0,0">
 
                 <Label Text="To be delivererd"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   Margin="0,0,0,10"
-                   TextColor="#D32F2F"/>
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       Margin="0,0,0,10"
+                       TextColor="#D32F2F"/>
 
                 <CollectionView
                     x:Name="undeliveredPackagesList"
@@ -68,22 +69,25 @@
                         <DataTemplate x:DataType="models:PackageItem">
 
                             <Frame InputTransparent="True"
-                                   Margin="0,0,0,5"
+                                   Margin="0,0,0,0"
                                    Padding="10"
                                    CornerRadius="8"
-                                   BackgroundColor="#FFEBEE">       
+                                   BackgroundColor="#FFEBEE">
 
-                                <Grid ColumnDefinitions="*,Auto">
-
-                                    <Label
-                                        Grid.Column="0"
-                                        Text="{Binding PackageId}" />
+                                <VerticalStackLayout>
 
                                     <Label
-                                        Grid.Column="1"
-                                        Text="{Binding Adress}" />
+                                        Text="{Binding PackageId}"
+                                        FontSize="16"
+                                        FontAttributes="Bold"
+                                        TextColor="#D32F2F"/>
 
-                                </Grid>
+                                    <Label
+                                        Text="{Binding Adress}"
+                                        FontSize="14"
+                                        TextColor="Gray"/>
+
+                                </VerticalStackLayout>
 
                             </Frame>
 
@@ -113,22 +117,25 @@
                         <DataTemplate x:DataType="models:PackageItem">
 
                             <Frame InputTransparent="True"
-                                   Margin="0,0,0,5"
+                                   Margin="0,0,0,0"
                                    Padding="10"
                                    CornerRadius="8"
-                                   BackgroundColor="#FFEBEE">           
+                                   BackgroundColor="#E8F5E9">
 
-                                <Grid ColumnDefinitions="*,Auto">
-
-                                    <Label
-                                        Grid.Column="0"
-                                        Text="{Binding PackageId}" />           
+                                <VerticalStackLayout>
 
                                     <Label
-                                        Grid.Column="1"
-                                        Text="{Binding Adress}" />
+                                        Text="{Binding PackageId}" 
+                                        FontSize="16"
+                                        FontAttributes="Bold"
+                                        TextColor="#388E3C"/>
 
-                                </Grid>
+                                    <Label
+                                        Text="{Binding Adress}"
+                                        FontSize="14"
+                                        TextColor="Gray"/>
+
+                                </VerticalStackLayout>
 
                             </Frame>
 

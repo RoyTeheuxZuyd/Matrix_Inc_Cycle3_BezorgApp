@@ -42,14 +42,22 @@ public partial class ConfirmDelivery : ContentPage
             }
         }
     }
-      private void OnPackageClicked(object sender, SelectionChangedEventArgs e)
+
+    [Obsolete]
+    private async void OnPackageClicked(object sender, SelectionChangedEventArgs e)
      {
-         if (e.CurrentSelection.FirstOrDefault() is PackageItem tapped)
-         {
-             tapped.IsDelivered = !tapped.IsDelivered;
-             UpdateLists();
-             ((CollectionView)sender).SelectedItem = null; // reset so it can be tapped again
-         }
+        if (e.CurrentSelection.FirstOrDefault() is PackageItem tapped)
+        {
+            bool answer = await DisplayAlert("Are you sure", "Do you want to proceed?", "OK", "Cancel");
+
+        
+            if (answer)
+            {
+                tapped.IsDelivered = !tapped.IsDelivered;
+                UpdateLists();
+                ((CollectionView)sender).SelectedItem = null; // reset so it can be tapped again
+            }
+        }        
      }
 
     private async void OnBackClicked(object sender, EventArgs e)

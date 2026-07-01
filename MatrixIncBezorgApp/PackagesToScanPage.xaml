@@ -4,14 +4,13 @@
              xmlns:models="clr-namespace:MatrixIncBezorgApp.Models"
              x:Class="MatrixIncBezorgApp.PackagesToScanPage"
              Title="Packages to Scan">
-    <Grid RowDefinitions="Auto,Auto,* ,Auto" Padding="20">
+    <Grid RowDefinitions="Auto,Auto,* ,Auto">
 
         <!-- STEP HEADER -->
-        <Frame Grid.Row="0"
-               BackgroundColor="Yellow"
+        <Frame BackgroundColor="Yellow"
                BorderColor="LightGray"
                Padding="10"
-               Margin="0,0,0,10">
+               Margin="10">
 
             <HorizontalStackLayout 
                 Spacing="20"
@@ -37,11 +36,13 @@
                Text="Packages to Collect"
                FontSize="24"
                FontAttributes="Bold"
-               Margin="0,0,0,15" />
+               Margin="10"/>
 
         <!-- LIST -->
         <CollectionView Grid.Row="2"
-                        x:Name="packagesList">
+                        x:Name="packagesList"
+                        HorizontalOptions="Center"
+                        Margin="10">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:PackageItem">
@@ -86,7 +87,7 @@
 
         <!-- NAV BUTTONS -->
         <Grid Grid.Row="3"
-              Padding="10"
+              Padding="20"
               ColumnDefinitions="Auto,*,Auto">
 
             <!-- BACK -->
@@ -101,7 +102,6 @@
                              Clicked="OnBackClicked"/>
             </Frame>
 
-            <Label Grid.Column="1"/>
 
             <!-- NEXT -->
             <Frame Grid.Column="2"
