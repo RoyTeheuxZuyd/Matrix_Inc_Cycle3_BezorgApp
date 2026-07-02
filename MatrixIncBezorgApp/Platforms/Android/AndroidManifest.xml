@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="matrix_inc.matrix_inc">
 	<application android:allowBackup="true" android:icon="@mipmap/appicon" android:supportsRtl="true">
 		<meta-data android:name="com.google.android.geo.API_KEY" 
-				   android:value="Paste_API_Key_Here" />
+				   android:value="AIzaSyC47mdM7K1KT-zM8Z1HKW7F9FjWcxppE74" />
 		<!-- GOOGLE API Key, Maps SDK for Android must be enabled-->
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
