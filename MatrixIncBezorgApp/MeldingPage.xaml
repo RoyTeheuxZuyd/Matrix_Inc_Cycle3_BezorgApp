@@ -2,117 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MatrixIncBezorgApp.MeldingPage"
-             Title="Melding maken">
+             Title="Melding">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
-            <Label Text="Heeft u een probleem tijdens uw route of in het magazijn? Neem contact op met de juiste afdeling."
-                   FontSize="16" />
+            <Frame BackgroundColor="#FFF8E1"
+                   BorderColor="#F4C542"
+                   Padding="15"
+                   CornerRadius="10">
 
-            <!-- MAGAZIJN -->
-            <Label Text="{Binding WarehouseName}"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   TextColor="Black" />
-
-            <Frame BackgroundColor="White"
-                   BorderColor="LightGray"
-                   Padding="15">
-
-                <Grid ColumnDefinitions="Auto,*">
-                    <Image Source="emailicon.png"
-                           WidthRequest="24"
-                           HeightRequest="24"
-                           VerticalOptions="Center" />
-
-                    <Label Grid.Column="1"
-                           Text="{Binding WarehouseEmail}"
-                           TextColor="Black"
-                           FontSize="16"
-                           Margin="10,0,0,0"
-                           VerticalOptions="Center" />
-
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnWarehouseEmailClicked" />
-                    </Grid.GestureRecognizers>
-                </Grid>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Onderstaande afbeelding toont de beoogde uitwerking van de meldingsfunctionaliteit."
+                           FontSize="15"
+                           TextColor="Black"/>
+                </VerticalStackLayout>
             </Frame>
 
-            <Frame BackgroundColor="White"
-                   BorderColor="LightGray"
-                   Padding="15">
-
-                <Grid ColumnDefinitions="Auto,*">
-                    <Image Source="telefoonicon.png"
-                           WidthRequest="24"
-                           HeightRequest="24"
-                           VerticalOptions="Center" />
-
-                    <Label Grid.Column="1"
-                           Text="{Binding WarehousePhone}"
-                           TextColor="Black"
-                           FontSize="16"
-                           Margin="10,0,0,0"
-                           VerticalOptions="Center" />
-
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnWarehousePhoneClicked" />
-                    </Grid.GestureRecognizers>
-                </Grid>
-            </Frame>
-
-            <!-- HELPDESK -->
-            <Label Text="{Binding HelpdeskName}"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   TextColor="Black"
-                   Margin="0,20,0,0" />
-
-            <Frame BackgroundColor="White"
-                   BorderColor="LightGray"
-                   Padding="15">
-
-                <Grid ColumnDefinitions="Auto,*">
-                    <Image Source="emailicon.png"
-                           WidthRequest="24"
-                           HeightRequest="24"
-                           VerticalOptions="Center" />
-
-                    <Label Grid.Column="1"
-                           Text="{Binding HelpdeskEmail}"
-                           TextColor="Black"
-                           FontSize="16"
-                           Margin="10,0,0,0"
-                           VerticalOptions="Center" />
-
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnHelpdeskEmailClicked" />
-                    </Grid.GestureRecognizers>
-                </Grid>
-            </Frame>
-
-            <Frame BackgroundColor="White"
-                   BorderColor="LightGray"
-                   Padding="15">
-
-                <Grid ColumnDefinitions="Auto,*">
-                    <Image Source="telefoonicon.png"
-                           WidthRequest="24"
-                           HeightRequest="24"
-                           VerticalOptions="Center" />
-
-                    <Label Grid.Column="1"
-                           Text="{Binding HelpdeskPhone}"
-                           TextColor="Black"
-                           FontSize="16"
-                           Margin="10,0,0,0"
-                           VerticalOptions="Center" />
-
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnHelpdeskPhoneClicked" />
-                    </Grid.GestureRecognizers>
-                </Grid>
-            </Frame>
+            <Image Source="melding_mockup.jpg"
+                   Aspect="AspectFit"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,20"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
