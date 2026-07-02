@@ -1,6 +1,8 @@
 API Key staat in /resources en moet in de android manifest geplakt worden
 API key wordt eruit gehaald en gedeactiveerd na beoordeling
 
+*DEZE APP WERKT ALLEEN OP FYSIEKE ANDROID DEVICES, NIET OP WINDOWS OF EMULATORS*
+
 **BELANGRIJK**
 Zorg dat de volgende pakketten zijn geinstalleerd in het project:
 
